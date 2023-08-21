@@ -34,19 +34,41 @@ function getAndSetPrices(getId,setPrice)
 
     const previousTotalString=previousTotalPrices.innerText
     const previousTotalFloat= parseFloat(previousTotalString)
-
-    
-
     const TotalPrice= previousTotalFloat + price
-    
     previousTotalPrices.innerText=TotalPrice.toFixed(2)
-
     const totalwithdiscount=document.getElementById('total-with-discount');
+    const newtotal=TotalPrice ;
+    totalwithdiscount.innerText=newtotal.toFixed(2);
 
-             const newtotal=TotalPrice ;
-             totalwithdiscount.innerText=newtotal.toFixed(2);
+            // apply button
+            document.getElementById('coupon-button').addEventListener('click',function(){
 
-            //  button
+                const discount=(TotalPrice*20)/100;
+                
+                const discountField=document.getElementById('discount')
+                discountField.innerText=discount.toFixed(2);
+
+                const totalfield=document.getElementById('total-with-discount')
+                const discountFloat=parseFloat(discountField.innerText)
+                const totalAmount=TotalPrice - discountFloat
+                totalfield.innerText=totalAmount.toFixed(2)
+                
+                
+                
+
+                
+                
+
+            })
+
+
+
+
+
+
+
+
+            // make purchase button
 
                 const button=document.getElementById('make-Purchase')
                 if( previousTotalPrices === '00.00')
@@ -58,7 +80,7 @@ function getAndSetPrices(getId,setPrice)
                     button.removeAttribute('disabled')
                 }
             
-               }
+               
 
 // coupon code
 document.getElementById('text-field').addEventListener('keyup',function(event){
@@ -76,8 +98,9 @@ document.getElementById('text-field').addEventListener('keyup',function(event){
         button.setAttribute('disabled',true)
     }
 
-
 })
+
+}
 
 
 
@@ -196,5 +219,8 @@ document.getElementById('Furniture-3').addEventListener('click',function(){
 
     const button=document.getElementById('make-Purchase')
     button.disabled=true
+
+    const initialApplyField=document.getElementById('text-field')
+    initialApplyField.value=''
 
 })
