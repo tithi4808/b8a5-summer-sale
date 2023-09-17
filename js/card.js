@@ -60,6 +60,8 @@ function getAndSetPrices(getId,setPrice)
                 
 
             })
+            
+
 
 
 
@@ -87,7 +89,7 @@ document.getElementById('text-field').addEventListener('keyup',function(event){
 
     const text=event.target.value;
     const button=document.getElementById('coupon-button')
-
+    
 
     if(text==='SELL200')
     {
@@ -219,6 +221,8 @@ document.getElementById('Furniture-3').addEventListener('click',function(){
 
     const button=document.getElementById('make-Purchase')
     button.disabled=true
+
+    
 
     const initialApplyField=document.getElementById('text-field')
     initialApplyField.value=''
